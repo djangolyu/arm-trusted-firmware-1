@@ -23,6 +23,11 @@ SECTIONS
 		/* A-side IPL content cert "Size" */
 		. = 0x00000E64;		/* H'00000C00 + H'00000264 */
 		KEEP(*(.sa0_bl2dst_size1))
+		/* Storing IPL B information */
+		. = 0x00001154;
+		KEEP(*(.sa0_bl2dst_addr2))
+		. = 0x00001264;
+		KEEP(*(.sa0_bl2dst_size2))
 	}
 
 }

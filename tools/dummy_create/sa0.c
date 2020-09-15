@@ -17,7 +17,7 @@
 
 /* SA0 */
 /* 0x00000000 */
-const unsigned int __attribute__ ((section (".sa0_bootrom"))) bootrom_paramA = 0x00000100;
+const unsigned int __attribute__ ((section (".sa0_bootrom"))) bootrom_paramA = 0x00000101;
 /* 0x00000080 (for eMMC Boot)*/
 /* 0x000001D4 */
 const unsigned int __attribute__ ((section (".sa0_bl2dst_addr3"))) bl2dst_addr3 = BL2_ADDRESS;
@@ -28,4 +28,5 @@ const unsigned int __attribute__ ((section (".sa0_bl2dst_size3"))) bl2dst_size3 
 const unsigned int __attribute__ ((section (".sa0_bl2dst_addr1"))) bl2dst_addr1 = BL2_ADDRESS;
 /* 0x00000E64 */
 const unsigned int __attribute__ ((section (".sa0_bl2dst_size1"))) bl2dst_size1 = BL2_SIZE;
-
+const unsigned int __attribute__ ((section (".sa0_bl2dst_addr2"))) bl2dst_addr2 = BL2_ADDRESS;
+const unsigned int __attribute__ ((section (".sa0_bl2dst_size2"))) bl2dst_size2 = BL2_SIZE;
