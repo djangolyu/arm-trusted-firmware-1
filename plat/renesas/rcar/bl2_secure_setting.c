@@ -91,7 +91,7 @@ static const struct {
 	/** Security attribute setting for slave ports 13 */
 	/* Bit22: RPC slave ports. */
 	/*        0: registers can be accessed from secure resource only. */
-	{SEC_SEL13,		0xFFBFFFFFU},
+	/* {SEC_SEL13,		0xFFBFFFFFU}, */
 
 	/** Security attribute setting for slave ports 14 */
 	/* Bit27: System Timer (SCMT) slave ports. */
@@ -222,8 +222,8 @@ static const struct {
 	/** Security group 1 attribute setting for slave ports 13 */
 	/* Bit22: RPC slave ports. */
 	/*        SecurityGroup3 */
-	{SEC_GRP0COND13,	0x00400000U},
-	{SEC_GRP1COND13,	0x00400000U},
+	/* {SEC_GRP0COND13,	0x00400000U}, */
+	/* {SEC_GRP1COND13,	0x00400000U}, */
 
 	/** Security group 0 attribute setting for slave ports 14 */
 	/** Security group 1 attribute setting for slave ports 14 */
