@@ -10,17 +10,21 @@
 
 #output file name
 FILE_NAME_SA0   = bootparam_sa0
+FILE_NAME_SA0B   = bootparam_sa0_iplb
 FILE_NAME_SA6   = cert_header_sa6
 
 OUTPUT_FILE_SA0 = $(FILE_NAME_SA0).elf
+OUTPUT_FILE_SA0B = $(FILE_NAME_SA0B).elf
 OUTPUT_FILE_SA6 = $(FILE_NAME_SA6).elf
 
 #object file name
 OBJ_FILE_SA0 =	sa0.o
+OBJ_FILE_SA0B =	sa0-iplb.o
 OBJ_FILE_SA6 =	sa6.o
 
 #linker script name 
 MEMORY_DEF_SA0 = sa0.ld.S
+MEMORY_DEF_SA0B = sa0.ld.S
 MEMORY_DEF_SA6 = sa6.ld.S
 
 ###################################################
@@ -78,7 +82,7 @@ CL = rm -f
 # command
 
 .PHONY: all
-all: $(OUTPUT_FILE_SA0) $(OUTPUT_FILE_SA6)
+all: $(OUTPUT_FILE_SA0) $(OUTPUT_FILE_SA6) $(OUTPUT_FILE_SA0B)
 ###################################################
 # Linker
 ###################################################
@@ -99,6 +103,15 @@ $(OUTPUT_FILE_SA6) : $(MEMORY_DEF_SA6) $(OBJ_FILE_SA6)
 
 	$(objcopy) -O srec --adjust-vma=0xE6320000 --srec-forceS3  $(OUTPUT_FILE_SA6) $(FILE_NAME_SA6).srec
 	$(objcopy) -O binary --adjust-vma=0xE6320000 --srec-forceS3  $(OUTPUT_FILE_SA6) $(FILE_NAME_SA6).bin
+
+$(OUTPUT_FILE_SA0B) : $(MEMORY_DEF_SA0B) $(OBJ_FILE_SA0B)
+	$(LD) $(OBJ_FILE_SA0B)		 	\
+	-T $(MEMORY_DEF_SA0B)			\
+	-o $(OUTPUT_FILE_SA0B)			\
+	-Map $(FILE_NAME_SA0B).map 		\
+
+	$(objcopy) -O srec --adjust-vma=0xE6320000 --srec-forceS3  $(OUTPUT_FILE_SA0B) $(FILE_NAME_SA0B).srec
+	$(objcopy) -O binary --adjust-vma=0xE6320000 --srec-forceS3  $(OUTPUT_FILE_SA0B) $(FILE_NAME_SA0B).bin
 
 ###################################################
 # Compile
