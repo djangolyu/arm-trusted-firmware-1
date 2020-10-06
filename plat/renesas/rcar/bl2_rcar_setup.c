@@ -477,7 +477,6 @@ static void rcar_bl2_early_platform_setup(const meminfo_t *mem_layout)
 	(void)sprintf(msg, "BL2: Initial Program Loader(Rev.%s)\n",
 					version_of_renesas);
 	NOTICE("%s", msg);
-	NOTICE("This is IPL B.\n");
 
 	/* R-Car Series, 3rd Generation product display & check */
 	reg = mmio_read_32(RCAR_PRR);
